@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "navbar"
+        "filter"
+        "main"
+        "footer";
+    grid-template-rows: 50px 50px 1fr 50px;
+    width: auto;
+    height: 100vh;
+}
+
+.nav-section {
+    grid-area: navbar;
+    display: flex;
+    background-color: #FFBB5C;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav-section .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.nav-section img {
+    width: 30px;
+}
+
+.nav-section ul{
+    display: none;
+
+}
+
+
+.filters-section {
+    grid-area: filter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.filters-section select {
+    width: 200px;
+    height: 30px;
+}
+
+.main-section {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.main-section .card-container .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+    border-style:groove ;
+    border-radius: 5px;
+}
+
+.main-section .card-container .card img {
+    width: 150px;
+    filter: grayscale(100%);
+
+}
+.main-section .card-container .card img:hover {
+    animation: alternate;
+    filter: grayscale(0%);
+    transform: scale(1.1) ;
+    
+
+}
+.main-section .card-container .card button {
+    background-color: #FF9B50;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {
+    display: inline;
+}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 9px 18px;
+    text-decoration: none;
+}
+
+ul.pagination li a.active:hover {
+    background-color: #E9B824;
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.foot-section {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    background-color: #EE9322;
+}
+
+@media (min-width: 576px){
+    .container {
+        grid-template-areas:
+            "navbar filter"
+            "navbar main"
+            "footer main";
+        grid-template-rows: 50px 1fr 50px;
+    }
+
+    .nav-section {
+        flex-direction: column;
+        justify-content: start;
+        gap: 25px;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .nav-section ul{
+        list-style: none;
+        display: block;
+    }
+
+    .nav-section .menu {
+        display: none;
+    }
+
+    .card-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .filters-section select {
+        width: 400px;
+    }
+
+
+}
